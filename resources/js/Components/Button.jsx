@@ -27,7 +27,7 @@ export default function Button({
             type={type}
             className={`rounded-2xl py-[13px] text-center w-full ${
                 processing && "opacity-30"
-            } btn-warning ${className}`}
+            } btn-${variant} ${className}`}
             disabled={processing}
         >
             {children}
