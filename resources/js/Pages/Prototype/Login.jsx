@@ -1,7 +1,7 @@
 import Button from "@/Components/Button"
 import Input from "@/Components/Input"
 import Label from "@/Components/Label"
-import { Link, Head} from "@inertiajs/inertia-react"
+import { Link, Head } from "@inertiajs/inertia-react"
 
 
 export default function Login(){
