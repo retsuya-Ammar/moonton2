@@ -2,6 +2,7 @@ import './bootstrap';
 import '../css/app.css';
 import "../css/button.css";
 import "../css/input.css";
+import "../css/sidebar.css";
 
 import React from 'react';
 import { render } from 'react-dom';
