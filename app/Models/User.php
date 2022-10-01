@@ -52,7 +52,7 @@ class User extends Authenticatable
             return false;
         }
         $dateNow = Carbon::now();
-        $dateExpired = Carbon::create($this->LastActiveUserSubscription()->expired_date)->addDays(30);
+        $dateExpired = Carbon::create($this->LastActiveUserSubscription->expired_date)->addDays(30);
         return $dateNow->lessThanOrEqualTo($dateExpired);
     }
 
