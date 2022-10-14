@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gayam.net',
             'password' => bcrypt('password'),
-        ]);
+        ]   );
         $admin->assignRole('admin');
     }
 }

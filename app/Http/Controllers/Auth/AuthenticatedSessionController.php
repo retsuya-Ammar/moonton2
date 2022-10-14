@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\User;
+use App\Models\User as ModelsUser;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -37,7 +39,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::user()->hasRole('admin')) {
+            return redirect(route('admin.dashboard.movie.index'));
+        }
+
+        return redirect()->route('user.dashboard.index');
     }
 
     /**
@@ -55,5 +61,10 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function hasRole($role)
+    {
+        return ModelsUser::where('role', $role)->first();
     }
 }
